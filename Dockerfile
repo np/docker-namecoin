@@ -1,4 +1,4 @@
-FROM debian
+FROM debian:7
 MAINTAINER npouillard
 
 # Dependencies
