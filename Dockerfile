@@ -1,5 +1,5 @@
 FROM debian
-MAINTAINER arturluizbr
+MAINTAINER npouillard
 
 # Dependencies
 RUN apt-get update \
@@ -12,12 +12,6 @@ RUN echo 'deb http://download.opensuse.org/repositories/home:/p_conrad:/coins/De
     && rm -f Release.key \
     && apt-get update \
     && apt-get install namecoin -y
-
-# Configuring Namecoin Daemon
-RUN mkdir -p ~/.namecoin \
-    && echo "rpcuser=`whoami`" >> ~/.namecoin/namecoin.conf \
-    && echo "rpcpassword=`openssl rand -hex 30/`" >> ~/.namecoin/namecoin.conf \
-    && echo "rpcport=8336" >> ~/.namecoin/namecoin.conf
 
 # Setting data directory
 VOLUME [ "/data" ]

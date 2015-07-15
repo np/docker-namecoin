@@ -2,7 +2,13 @@
 set -e
 
 if [ "$1" = 'namecoin' ]; then
-    exec namecoind -datadir=/data -conf=/root/.namecoin/namecoin.conf `echo ${@:2}`
+    shift
+    if [ -e /data/namecoin.conf ];
+      exec namecoind -datadir=/data "$@"
+    else
+      echo 'No /data/namecoin.conf, please create one.' >>/dev/stderr
+      exit 1
+    fi
 else
     exec "$@"
 fi
