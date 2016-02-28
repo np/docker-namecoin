@@ -1,4 +1,4 @@
-FROM debian:7
+FROM debian:8
 MAINTAINER npouillard
 
 # Dependencies
@@ -6,8 +6,8 @@ RUN apt-get update \
     && apt-get install wget -y
 
 # Installing Namecoin Daemon
-RUN echo 'deb http://download.opensuse.org/repositories/home:/p_conrad:/coins/Debian_7.0/ /' >> /etc/apt/sources.list.d/namecoin.list \
-    && wget http://download.opensuse.org/repositories/home:p_conrad:coins/Debian_7.0/Release.key \
+RUN echo 'deb http://download.opensuse.org/repositories/home:/p_conrad:/coins/Debian_8.0/ /' >> /etc/apt/sources.list.d/namecoin.list \
+    && wget http://download.opensuse.org/repositories/home:p_conrad:coins/Debian_8.0/Release.key \
     && apt-key add - < Release.key \
     && rm -f Release.key \
     && apt-get update \
